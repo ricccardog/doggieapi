@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 
@@ -21,9 +23,12 @@ public class Walk {
 
     private LocalDateTime dateTime;
 
-    
-    private Long dogId;
+    @ManyToOne
+    @JoinColumn(name = "dog_id")
+    private Dog dog;
 
-    private Long ownerId;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
     
 }

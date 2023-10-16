@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.doggieapi.models.Dog;
-import com.doggieapi.models.Owner;
 import com.doggieapi.models.Walk;
 import com.doggieapi.repositories.DogRepository;
-import com.doggieapi.repositories.OwnerRepository;
 import com.doggieapi.repositories.WalkRepository;
 
 import org.springframework.data.domain.Sort;
@@ -27,9 +25,6 @@ public class WalkServiceImpl implements WalkService {
 
     @Autowired
     private DogRepository dogRepository;
-
-    @Autowired
-    private OwnerRepository ownerRepository;
 
     @Override
     public Optional<List<Walk>> getAllWalks(Long dogId, Long ownerId, LocalDateTime date) {
@@ -61,15 +56,10 @@ public class WalkServiceImpl implements WalkService {
 
     @Override
     public Walk createWalk(Walk walk) {
-        if (walk.getDogId() != null) {
-            Optional<Dog> dog = dogRepository.findById(walk.getDogId());
-            dog.ifPresent(value -> walk.setOwnerId(value.getOwner().getId()));
+        if (walk.getDog() != null) {
+            Optional<Dog> dog = dogRepository.findById(walk.getDog().getId());
+            dog.ifPresent(value -> walk.setOwner(value.getOwner()));
         }
-        if (walk.getOwnerId() != null) {
-            Optional<Owner> owner = ownerRepository.findById(walk.getOwnerId());
-            owner.ifPresent(value -> walk.setDogId(value.getDog().getId()));
-        }
-
         return walkRepository.save(walk);
     }
 

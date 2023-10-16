@@ -1,10 +1,12 @@
 package com.doggieapi.models;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -16,7 +18,6 @@ public class Owner {
     private Long id;
     private String name;
 
-    @OneToOne
-    private Dog dog;
-    
+    @OneToMany (mappedBy = "owner")
+    private List<Dog> dog;
 }

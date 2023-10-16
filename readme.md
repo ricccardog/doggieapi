@@ -63,7 +63,6 @@ This document provides an overview of the endpoints available in the DoggieApi a
       "race": "NewBreed",
       "age": 4,
       "color": "NewColor",
-      "owner": {} // Owner information
   }
   ```
 - **Sample Response:**
@@ -74,7 +73,6 @@ This document provides an overview of the endpoints available in the DoggieApi a
       "race": "NewBreed",
       "age": 4,
       "color": "NewColor",
-      "owner": {} // Owner information
   }
   ```
 
@@ -87,10 +85,8 @@ This document provides an overview of the endpoints available in the DoggieApi a
   ```json
   {
       "name": "UpdatedDogName",
-      "race": "UpdatedBreed",
       "age": 5,
       "color": "UpdatedColor",
-      "owner": {} // Owner information
   }
   ```
 - **Sample Response:**
@@ -98,10 +94,9 @@ This document provides an overview of the endpoints available in the DoggieApi a
   {
       "id": 1,
       "name": "UpdatedDogName",
-      "race": "UpdatedBreed",
+      "race": "Race",
       "age": 5,
       "color": "UpdatedColor",
-      "owner": {} // Owner information
   }
   ```
 
@@ -159,7 +154,6 @@ This document provides an overview of the endpoints available in the DoggieApi a
   ```json
   {
       "name": "NewOwnerName",
-      "dog": {} // Dog information
   }
   ```
 - **Sample Response:**
@@ -167,7 +161,6 @@ This document provides an overview of the endpoints available in the DoggieApi a
   {
       "id": 3,
       "name": "NewOwnerName",
-      "dog": {} // Dog information
   }
   ```
 

@@ -2,9 +2,10 @@ package com.doggieapi.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.OneToOne;
 
 import lombok.Data;
 
@@ -21,7 +22,7 @@ public class Dog {
     private String color;
     private int age;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name ="owner_id")
     private Owner owner;
-
 }
